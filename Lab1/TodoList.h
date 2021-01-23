@@ -3,6 +3,7 @@
 
 #include "TodoListInterface.h"
 #include <vector>
+#include <fstream>
 
 class TodoList: public TodoListInterface {
     public:
@@ -14,8 +15,18 @@ class TodoList: public TodoListInterface {
        }
        void Add(std::string userDate, std::string userTask) {
            std::cout << "In Add" << std::endl;
-           date.push_back(userDate);
-           task.push_back(userTask);
+
+	   std::ofstream todoList ("todo.txt");
+	   if (todoList.is_open()) {
+		   todoList.seekg(0 ,ios::end);
+		   todoList << userDate << std::endl;
+		   todoList << userTask << std::endl;
+		   todoList.close();
+	   }
+	   else {
+		   std::cout << "Unable to open file" << std::endl;
+	   }
+	   
        }
        int Remove(std::string userTask) {
            std::cout << "In Remove" << std::endl;
