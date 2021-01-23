@@ -11,10 +11,10 @@
   {
   	int sum = 5;
   	int count = 0;
-  	int average = sum / count;
+  	// int average = sum / count;
   
   	char *nowhere = 0;
-  	*nowhere = 5;
+  	// *nowhere = 5;
   
   	char small[2];
   	bad(small);
