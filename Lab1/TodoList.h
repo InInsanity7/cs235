@@ -16,9 +16,9 @@ class TodoList: public TodoListInterface {
        void Add(std::string userDate, std::string userTask) {
            std::cout << "In Add" << std::endl;
 
-	   std::ofstream todoList ("todo.txt");
+	   std::ofstream todoList ("todo.txt", std::ios::app); //appending. Why trunc?
 	   if (todoList.is_open()) {
-		   todoList.seekp(0 ,ios::end);
+		   todoList.seekp(0 ,std::ios::end);
 		   todoList << userDate << std::endl;
 		   todoList << userTask << std::endl;
 		   todoList.close();
@@ -59,3 +59,5 @@ class TodoList: public TodoListInterface {
 };
 
 #endif
+
+

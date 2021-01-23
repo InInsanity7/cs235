@@ -21,7 +21,7 @@ int main(int argc, char *argv[]) {
             }
             //do add
             else {
-                userList.Add(argv[1], argv[2]);
+                userList.Add(argv[2], argv[3]);
             }
         }
 
