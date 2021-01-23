@@ -22,14 +22,15 @@ class TodoList: public TodoListInterface {
            return 0;
        }
        void PrintTodoList() {
-           for (int i = 0; i < task.size(); i++) {
+           std::cout << "In PrintTodoList" << std::endl;
+           /*for (int i = 0; i < task.size(); i++) {
            std::cout << date.at(i) << std::endl;
            std::cout << task.at(i) << std::endl;
-           } 
+           } */
        }
        void PrintDaysTasks(std::string userDate) {
-           std::cout << "In PrintTodoList" << std::endl;
-           bool taskFound = false;
+           std::cout << "In PrintDaysTasks" << std::endl;
+           /* bool taskFound = false;
 
                   for (int i = 0; (i < task.size()) && (!taskFound); i++) {
                       if (userDate.compare(task.at(i))==0) {
@@ -38,7 +39,7 @@ class TodoList: public TodoListInterface {
 
                           taskFound = true;
                       }
-                  }
+                  } */
        }
 
     private:
