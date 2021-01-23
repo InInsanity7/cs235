@@ -18,7 +18,7 @@ class TodoList: public TodoListInterface {
 
 	   std::ofstream todoList ("todo.txt");
 	   if (todoList.is_open()) {
-		   todoList.seekg(0 ,ios::end);
+		   todoList.seekp(0 ,ios::end);
 		   todoList << userDate << std::endl;
 		   todoList << userTask << std::endl;
 		   todoList.close();
