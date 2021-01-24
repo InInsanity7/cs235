@@ -33,7 +33,12 @@ int main(int argc, char *argv[]) {
             }
             //do remove
             else {
-                userList.Remove(argv[2]);
+                if (userList.Remove(argv[2])) {
+                    std::cout << "Task removed" << std::endl;
+                }
+                else {
+                    std::cout << "Task not found" << std::endl;
+                }
             }
         }
         
