@@ -1,0 +1,3 @@
+[submodule "Maze-Lab"]
+	path = Maze-Lab
+	url = https://github.com/BYUCS235/Maze-Lab
