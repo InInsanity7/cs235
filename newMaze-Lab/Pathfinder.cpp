@@ -1,18 +1,18 @@
+#include "maze.h"
 #include "Pathfinder.h"
 #include <cstdlib>
 #include <ctime>
 #include <fstream>
-
-const int MAZE_LENGTH = 5;
+#include <string>
 
 
 
 Pathfinder::Pathfinder() {
     srand(time(0));
 
-    for (int i = 0; i < MAZE_LENGTH; i++) {
-        for (int j = 0; j < MAZE_LENGTH; j++) {
-            for (int k = 0; k < MAZE_LENGTH; k++) {
+    for (int i = 0; i < MAX_LENGTH; i++) {
+        for (int j = 0; j < MAX_LENGTH; j++) {
+            for (int k = 0; k < MAX_LENGTH; k++) {
                 maze[i][j][k] = 1;
             }
         }
@@ -21,11 +21,11 @@ Pathfinder::Pathfinder() {
     
 Pathfinder::~Pathfinder() {}
     
-std::string Pathfinder::toString() {
+std::string Pathfinder::toString() const {
     std::string mazeString;
-    for (int i = 0; i < MAZE_LENGTH; i++) {
-        for (int j = 0; j < MAZE_LENGTH; j++) {
-            for (int k = 0; k < MAZE_LENGTH; k++) {
+    for (int i = 0; i < MAX_LENGTH; i++) {
+        for (int j = 0; j < MAX_LENGTH; j++) {
+            for (int k = 0; k < MAX_LENGTH; k++) {
                 mazeString += maze[i][j][k];
                 mazeString += " ";
             }
@@ -38,9 +38,9 @@ std::string Pathfinder::toString() {
 
 
 void Pathfinder::createRandomMaze() {
-    for (int i = 0; i < MAZE_LENGTH; i++) {
-        for (int j = 0; j < MAZE_LENGTH; j++) {
-            for (int k = 0; k < MAZE_LENGTH; k++) {
+    for (int i = 0; i < MAX_LENGTH; i++) {
+        for (int j = 0; j < MAX_LENGTH; j++) {
+            for (int k = 0; k < MAX_LENGTH; k++) {
                 maze[i][j][k] = (rand() % 2);
             }
         }
@@ -50,7 +50,7 @@ void Pathfinder::createRandomMaze() {
 }
 
 bool Pathfinder::importMaze(string file_name) {
-    std::string tempMaze[MAZE_LENGTH][MAZE_LENGTH][MAZE_LENGTH];
+    std::string tempMaze[MAX_LENGTH][MAX_LENGTH][MAX_LENGTH];
     string line;  
     std::ifstream ifs;
     
@@ -60,8 +60,8 @@ bool Pathfinder::importMaze(string file_name) {
         return false;
     }
 
-    for (int i = 0; i < MAZE_LENGTH; i++) {
-        for (int j = 0; j < MAZE_LENGTH; j++) {
+    for (int i = 0; i < MAX_LENGTH; i++) {
+        for (int j = 0; j < MAX_LENGTH; j++) {
             getline(ifs, line); 
             if(ifs.bad() || ifs.fail()) {
                 std::cout << "Line read fail" << std::endl;
@@ -73,12 +73,12 @@ bool Pathfinder::importMaze(string file_name) {
 
                 line = line.substr(0, line.size()-1);
             }
-            if(line.size() != MAZE_LENGTH*2-1) {
+            if(line.size() != MAX_LENGTH*2-1) {
                 cout << "line wrong size: actual " << line.size() << 
-                        ", expected: " << MAZE_LENGTH*2-1 << endl;
+                        ", expected: " << MAX_LENGTH*2-1 << endl;
             return false;
             }
-            for (int k = 0; k < MAZE_LENGTH; k++) {
+            for (int k = 0; k < MAX_LENGTH; k++) {
                 if (line[k*2] == 0 || line[k*2] == 1) {
                     tempMaze[i][j][k] = line[k*2];
                 }
@@ -89,85 +89,33 @@ bool Pathfinder::importMaze(string file_name) {
         }
     }
     //overwrite class with successful import
-    for (int i = 0; i < MAZE_LENGTH; i++) {
-        for (int j = 0; j < MAZE_LENGTH; j++) {
-            for (int k = 0; k < MAZE_LENGTH; k++) {
-                maze[i][j][k] = tempMaze[i][j][k];
+    for (int i = 0; i < MAX_LENGTH; i++) {
+        for (int j = 0; j < MAX_LENGTH; j++) {
+            for (int k = 0; k < MAX_LENGTH; k++) {
+                //FIXME
+                int tempInt;
+                std::cout << tempMaze[i][j][k] << std::endl;
+                tempInt = std::stoi(tempMaze[i][j][k]);
+                maze[i][j][k] = tempInt;
             }
         }
     }
     maze[0][0][0] = 1;
     maze[4][4][4] = 1;
+
+    return true;
 }
 
 
 
 
 std::vector<std::string> Pathfinder::solveMaze() {
-    std::vector<std::string> path;
-    int x,y,z = 0;
-    std::vector<string> it;
-    std::string currentLocation;
-
-    bool findPath(int x, int y, int z) {
-        //stringify current location
-        currentLocation = "("
-        currentLocation += std::to_string(x);
-        currentLocation += ", ";
-        currentLocation += std::to_string(y);
-        currentLocation += ", ";
-        currentLocation += std::to_string(z);
-        currentLocation += ")";
-
-        //checks bounds
-        if (x < MAX_LENGTH || x >= MAX_LENGTH) {
-            return false;
-        }
-        if (y < MAX_LENGTH || y >= MAX_LENGTH) {
-            return false;
-        }
-        if (z < MAX_LENGTH || z >= MAX_LENGTH) {
-            return false;
-        }    
-        //checks for previously travelled path
-        it = find(path.begin(), path.end(), currentLocation);
-        if (it != path.end()) {
-            return false;
-        }
-        
-        path.push_back(currentLocation);
-        
-        //if end of maze
-        if(x == MAZE_LENGTH && y == MAZE_LENGTH && z == MAZE_LENGTH) {
-            /*
-            for (int i = 0; i < MAZE_LENGTH; i++) {
-                for (int j = 0; j < MAZE_LENGTH; j++) {
-                    for (int k = 0; k < MAZE_LENGTH; k++) {
-                        if (maze[i][j][k] == 2) {
-                            maze[i][j][k] = 1;
-                        }
-                    }
-                }
-            }
-            */
-            return true;
-            std::cout << "End of Maze found" << std::endl;
-        }
-
-//        maze[i][j][k] = 2;
-        if (findPath(x - 1, y, z) ||
-            findPath(x + 1, y, z) ||
-            findPath(x, y - 1, z) ||
-            findPath(x, y + 1, z) ||
-            findPath(x, y, z - 1) ||
-            findPath(x, y, z + 1)) {
-          return true;
-        }
-        else {
-            path.pop_back();
-            return false;
-
-        }
-        }
-    return path;
+   AMaze theMaze;
+   if (theMaze.findPath(0,0,0)) {
+   return theMaze.path;
+}
+   else {
+        std::vector<string> empty;
+        return empty;
+   }
 }

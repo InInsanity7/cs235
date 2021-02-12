@@ -4,6 +4,7 @@
 #include <sstream>
 #include <stdexcept>
 #include "Pathfinder.h"
+#include "maze.h"
 
 const int NUM_FILES = 5; // the total number of files to be read from
 

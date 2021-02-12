@@ -6,10 +6,12 @@
 #include <string>
 #include <vector>
 
+#define MAX_LENGTH 5
+
 class Pathfinder: public PathfinderInterface {
 public:
-	Pathfinder() {}
-	 ~Pathfinder() {}
+	Pathfinder();
+	 ~Pathfinder();
 
 	 string toString() const;
 
@@ -21,8 +23,7 @@ public:
 
 private:
 
-    int maze [MAZE_LENGTH][MAZE_LENGTH][MAZE_LENGTH];
-    std::vector<std::string> path;
+    int maze[MAX_LENGTH][MAX_LENGTH][MAX_LENGTH];
 
 };
 
