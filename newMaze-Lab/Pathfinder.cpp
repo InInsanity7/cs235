@@ -22,17 +22,16 @@ Pathfinder::Pathfinder() {
 Pathfinder::~Pathfinder() {}
     
 std::string Pathfinder::toString() const {
-    std::string mazeString;
+    std::stringstream ss;
     for (int i = 0; i < MAX_LENGTH; i++) {
         for (int j = 0; j < MAX_LENGTH; j++) {
             for (int k = 0; k < MAX_LENGTH; k++) {
-                mazeString += maze[i][j][k];
-                mazeString += " ";
+                ss << maze[i][j][k] << " ";
             }
-            mazeString += "\n";
+            ss << std::endl;
         }
     }
-    return mazeString;
+    return ss.str(); 
 }
 
 
@@ -50,60 +49,51 @@ void Pathfinder::createRandomMaze() {
 }
 
 bool Pathfinder::importMaze(string file_name) {
-    std::string tempMaze[MAX_LENGTH][MAX_LENGTH][MAX_LENGTH];
-    string line;  
-    std::ifstream ifs;
-    
-    ifs.open(file_name, std::ifstream::in);
-    if(!ifs.is_open()) {
-        std::cout << "File didn't open" << std::endl;
-        return false;
-    }
+    std::cout << "importMaze from "<<file_name<<std::endl;
+    std::ifstream file (file_name.c_str());
+    int tmpMaze[MAX_LENGTH][MAX_LENGTH][MAX_LENGTH];
 
-    for (int i = 0; i < MAX_LENGTH; i++) {
-        for (int j = 0; j < MAX_LENGTH; j++) {
-            getline(ifs, line); 
-            if(ifs.bad() || ifs.fail()) {
-                std::cout << "Line read fail" << std::endl;
+		if (file.is_open()) {
+            std::string line;
+			int row_count = 0;
+            std::cout << "is open" << std::endl;
+            for (int xval = 0; xval < MAX_LENGTH; xval++) {
+
+			for(int yval = 0; yval < MAX_LENGTH; yval++) {
+				getline(file, line);
+                std::stringstream ss(line);
+				for(int zval = 0; zval < MAX_LENGTH; zval++) {
+					int value;
+					ss >> value;
+                    if (value == 0 || value == 1) {
+					    cout << "["<<xval<<"]["<<yval<<"]["<<zval<<"]="
+                             <<value<<endl;
+				    	tmpMaze[xval][yval][zval] = value;
+                    }
+                    else {
+                        std::cout << "bad number" << std::endl;
+                        return false;
+                    }
+				}
+            }
+            if (file.eof()) {
+                std::cout << "reached end of file too soon" << std::endl;
                 return false;
             }
-            while(line[line.size()-1] == ' ' ||
-                  line[line.size()-1] == '\n' ||
-                  line[line.size()-1] == '\r') {
-
-                line = line.substr(0, line.size()-1);
+            else {
+                getline(file, line);
             }
-            if(line.size() != MAX_LENGTH*2-1) {
-                cout << "line wrong size: actual " << line.size() << 
-                        ", expected: " << MAX_LENGTH*2-1 << endl;
-            return false;
-            }
-            for (int k = 0; k < MAX_LENGTH; k++) {
-                if (line[k*2] == 0 || line[k*2] == 1) {
-                    tempMaze[i][j][k] = line[k*2];
+		}
+        for (int x = 0; x < MAZE_LENGTH; x++) {
+            for (int y = 0; y < MAZE_LENGTH; y++) {
+                for (int z = 0; z < MAZE_LENGTH; z++) {
+                    maze[x][y][z] = tmpMaze[x][y][z];
                 }
             }
         }
-        if (!ifs.eof()) {
-        getline(ifs, line);
-        }
-    }
-    //overwrite class with successful import
-    for (int i = 0; i < MAX_LENGTH; i++) {
-        for (int j = 0; j < MAX_LENGTH; j++) {
-            for (int k = 0; k < MAX_LENGTH; k++) {
-                //FIXME
-                int tempInt;
-                std::cout << tempMaze[i][j][k] << std::endl;
-                tempInt = std::stoi(tempMaze[i][j][k]);
-                maze[i][j][k] = tempInt;
-            }
-        }
-    }
-    maze[0][0][0] = 1;
-    maze[4][4][4] = 1;
 
-    return true;
+	    return(true);
+        }
 }
 
 
@@ -114,7 +104,7 @@ std::vector<std::string> Pathfinder::solveMaze() {
    if (theMaze.findPath(0,0,0)) {
    return theMaze.path;
 }
-   else {
+   else 
         std::vector<string> empty;
         return empty;
    }
