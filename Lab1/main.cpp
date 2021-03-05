@@ -3,6 +3,7 @@
 int main(int argc, char *argv[]) {
     std::string function;
     
+    std::cout << "CMAKE WORKS IN POWERSHELL" << std::endl;
     //validate usage:
     if (argc < 2 || argc > 4) {
         std::cout << "Usage: ./TODO <function> [option] [option1]" << std::endl;
