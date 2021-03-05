@@ -24,7 +24,7 @@ class LinkedList: public LinkedListInterface<T> {
             std::cout << "In destructor" << std::endl;
 
             while (mylist != NULL) {
-            Node* ptr = NULL;
+                Node* ptr = NULL;
                 ptr = mylist;
                 mylist = mylist->next;
                 delete ptr;
@@ -203,14 +203,15 @@ class LinkedList: public LinkedListInterface<T> {
 
         virtual T at(int index){
             Node* ptr = mylist;
-
-            if (index >= num_items) {
-                throw std::out_of_range("out_of_range");
-            }
-            for (int i = 0; i < index; i++) {
-                ptr = ptr->next;
-            }
-            return ptr->data;
+                if (index >= num_items || index < 0) {
+                    throw std::out_of_range("out_of_range");
+                }
+                else {
+                for (int i = 0; i < index; i++) {
+                    ptr = ptr->next;
+                }
+                return ptr->data;
+                }
         }
 
         virtual int size() {return num_items;}
@@ -223,12 +224,13 @@ class LinkedList: public LinkedListInterface<T> {
                 llstr << ptr->data << " ";
                 while (ptr->next != NULL) {
                     ptr = ptr->next;
-                llstr << ptr->data << " ";
+                    llstr << ptr->data << " ";
                 }
             }
-            //remove final space and return string
-            return llstr.str();
-            }
+            std::string formatting =  llstr.str();
+            formatting = formatting.substr(0, formatting.length() - 1);
+            return formatting;
+        }
 
     private:
         struct Node {
@@ -243,5 +245,6 @@ class LinkedList: public LinkedListInterface<T> {
 };
 
 #endif /* LINKED_LIST_H */
-	
+
+
 
