@@ -1,0 +1,68 @@
+out_file1.txt
+  1 2 3							      |	  1 2 3 								
+  0 1 2 3 4							      |	  0 1 2 3 4 								
+out_file2.txt
+  lazy							      |	  lazy 								
+  lazy							      |	  lazy 								
+  lazy							      |	  lazy 								
+  lazy dog.							      |	  lazy dog. 								
+  lazy dog.							      |	  lazy dog. 								
+  fox lazy dog.							      |	  fox lazy dog. 								
+  brown fox lazy dog.							      |	  brown fox lazy dog. 								
+  quick brown fox lazy dog.							      |	  quick brown fox lazy dog. 								
+  The quick brown fox lazy dog.							      |	  The quick brown fox lazy dog. 								
+  The quick brown fox lazy dog.							      |	  The quick brown fox lazy dog. 								
+  The quick brown fox lazy dog.							      |	  The quick brown fox lazy dog. 								
+  The quick brown fox the lazy dog.							      |	  The quick brown fox the lazy dog. 								
+  The quick brown fox jumps the lazy dog.							      |	  The quick brown fox jumps the lazy dog. 								
+  The quick brown fox jumps over the lazy dog.							      |	  The quick brown fox jumps over the lazy dog. 								
+  The quick brown fox jumps over the lazy dog.							      |	  The quick brown fox jumps over the lazy dog. 								
+at -1 out_of_range							      |	at -1 The								
+out_file3.txt
+  0 9999 1 -1 2 3 4 5 6 7 8 9 10 12							      |	  0 9999 1 -1 2 3 4 5 6 7 8 9 10 12 								
+  0 9999 1 2 3 4 5 6 7 8 9 10 12							      |	  0 9999 1 2 3 4 5 6 7 8 9 10 12 								
+  0 9999 1 2 3 4 5 6 7 8 9 10 12							      |	  0 9999 1 2 3 4 5 6 7 8 9 10 12 								
+  0 9999 1 2 3 4 5 6 7 8 9 10 12							      |	  0 9999 1 2 3 4 5 6 7 8 9 10 12 								
+  0 1 2 3 4 5 6 7 8 9 10 12							      |	  0 1 2 3 4 5 6 7 8 9 10 12 								
+  0 1 2 3 4 5 6 7 8 9 12							      |	  0 1 2 3 4 5 6 7 8 9 12 								
+  1 2 3 4 5 6 7 8 9 12							      |	  1 2 3 4 5 6 7 8 9 12 								
+out_file4.txt
+  Combing Coming front							      |	  Combing Coming front 								
+  Combing Coming							      |	  Combing Coming 								
+  Combing Coming back to							      |	  Combing Coming back to 								
+  Combing Coming back to where							      |	  Combing Coming back to where 								
+  Combing Coming back to where you started is not the same as							      |	  Combing Coming back to where you started is not the same as								
+  Coming back to where you started is not the same as never l							      |	  Coming back to where you started is not the same as never l								
+out_file5.txt
+  so,							      |	  so, 								
+  kingdom ``Annabel So me, men ```of killing `my ``````was `a							      |	  kingdom ``Annabel So me, men ```of killing `my ``````was `a								
+  By kingdom other `she `kingdom reason ``Annabel So from me,							      |	  By kingdom other `she `kingdom reason ``Annabel So from me,								
+  By 1849 kingdom ``a other `she `In But reason ``Annabel So 							      |	  By 1849 kingdom ``a other `she `In But reason ``Annabel So 								
+  By 1849 kingdom ``a with other `she `In But reason ``Annabe							      |	  By 1849 kingdom ``a with other `she `In But reason ``Annabe								
+  By 1849 kingdom ``a with other ``and `she But `I `Annabel `							      |	  By 1849 kingdom ``a with other ``and `she But `I `Annabel `								
+  By 1849 many kingdom by That ``a this with other ``and `she							      |	  By 1849 many kingdom by That ``a this with other ``and `she								
+  By 1849 many `many kingdom by That ``a this with other ``an							      |	  By 1849 many `many kingdom by That ``a this with other ``an								
+  By 1849 It many `many kingdom by sea, That ``a know this wi							      |	  By 1849 It many `many kingdom by sea, That ``a know this wi								
+  By 1849 It many `many kingdom by sea, That ``a know this wi							      |	  By 1849 It many `many kingdom by sea, That ``a know this wi								
+  By 1849 It many `many kingdom by sea, That ``a there know L							      |	  By 1849 It many `many kingdom by sea, That ``a there know L								
+  By 1849 It many `many kingdom by sea, That ``a there know L							      |	  By 1849 It many `many kingdom by sea, That ``a there know L								
+  By 1849 It many `many kingdom by sea, That ``a there know L							      |	  By 1849 It many `many kingdom by sea, That ``a there know L								
+  By Edgar 1849 It many `many kingdom by sea, That ``a maiden							      |	  By Edgar 1849 It many `many kingdom by sea, That ``a maiden								
+  By Edgar 1849 It many and `many kingdom by sea, That ``a ma							      |	  By Edgar 1849 It many and `many kingdom by sea, That ``a ma								
+  By Edgar 1849 It many and `many a In kingdom by sea, That `							      |	  By Edgar 1849 It many and `many a In kingdom by sea, That `								
+  By Edgar 1849 It was many and `many a In by sea, That ``a m							      |	  By Edgar 1849 It was many and `many a In by sea, That ``a m								
+  By Edgar 1849 It was many and `many a In by sea, That ``a m							      |	  By Edgar 1849 It was many and `many a In by sea, That ``a m								
+  By Edgar 1849 It was many and `many a In by sea, That ``a m							      |	  By Edgar 1849 It was many and `many a In by sea, That ``a m								
+  By Edgar Poe 1849 It was many and `many a In by sea, That `							      |	  By Edgar Poe 1849 It was many and `many a In by sea, That `								
+  By Edgar Allen Poe 1849 It was many and `many a In by sea, 							      |	  By Edgar Allen Poe 1849 It was many and `many a In by sea, 								
+  By Edgar Allen Poe 1849 It was many and `many a ago, In kin							      |	  By Edgar Allen Poe 1849 It was many and `many a ago, In kin								
+  By Edgar Allen Poe 1849 It was many and `many a year ago, I							      |	  By Edgar Allen Poe 1849 It was many and `many a year ago, I								
+  By Edgar Allen Poe 1849 It was many and `many a year ago, I							      |	  By Edgar Allen Poe 1849 It was many and `many a year ago, I								
+  By Edgar Allen Poe 1849 It was many and `many a year ago, I							      |	  By Edgar Allen Poe 1849 It was many and `many a year ago, I								
+  By Edgar Allen Poe 1849 It was many and `many a year ago, I							      |	  By Edgar Allen Poe 1849 It was many and `many a year ago, I								
+  By Allen Poe 1849 It was many and `many a year ago, In king							      |	  By Allen Poe 1849 It was many and `many a year ago, In king								
+  By Allen Poe 1849 It was many and `many a year ago, In `a k							      |	  By Allen Poe 1849 It was many and `many a year ago, In `a k								
+  By Allen Poe 1849 It was many and `many a year ago, In `a k							      |	  By Allen Poe 1849 It was many and `many a year ago, In `a k								
+  By Allen Poe 1849 It was many and `many a year ago, In `a k							      |	  By Allen Poe 1849 It was many and `many a year ago, In `a k								
+  By Edgar Allen Poe 1849 It was many and `many a year ago, I							      |	  By Edgar Allen Poe 1849 It was many and `many a year ago, I								
+  By Edgar Allen Poe 1849 It was many and `many a year ago, I							      |	  By Edgar Allen Poe 1849 It was many and `many a year ago, I								

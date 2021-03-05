@@ -21,8 +21,22 @@ class LinkedList: public LinkedListInterface<T> {
             std::cout << "In constructor" << std::endl;
         };
         virtual ~LinkedList(void) {
-            std::cout << "In destructor" << endl;
-            this->clear();
+            std::cout << "In destructor" << std::endl;
+
+            while (mylist != NULL) {
+            Node* ptr = NULL;
+                ptr = mylist;
+                mylist = mylist->next;
+                delete ptr;
+                num_items--;
+            }
+            if (num_items != 0) {
+                std::cout << "clear ended before num_items 0" << std::endl;
+            }
+            else {
+                std::cout << "cleared" << std::endl;
+            }
+
             /* while (mylist != NULL) { */
             /*     Node* current = mylist; */
             /*     mylist = mylist->next; */
@@ -115,8 +129,12 @@ class LinkedList: public LinkedListInterface<T> {
             }
             if (!this->find(insertionNode)) {
                 std::cout << insertionNode << "is not in the list" << std::endl;
+                return;
             }
 
+            if (mylist == NULL || num_items == 0) {
+                return;
+            }
             Node* ptr = mylist;
             Node* insertNode = new Node(value);
             bool inserted = false;
