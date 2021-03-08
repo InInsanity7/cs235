@@ -1,6 +1,7 @@
 #include "maze.h"
 #include <algorithm>
 #include <bits/stdc++.h>
+#include <sstream>
 
 bool AMaze::findPath(int x, int y, int z) {
     std::string currentLocation;
@@ -35,14 +36,15 @@ bool AMaze::findPath(int x, int y, int z) {
        }
 
        //check for open path
-       if (maze[x][y][z] == 0;) {
+       for (int i = 0; i < path.size(); i++) {
+         if (path.at(i) == output.str()) {
            return false;
        }
 
        path.push_back(output.str());
         
         //if end of maze
-        if(x == MAZE_LENGTH && y == MAZE_LENGTH && z == MAZE_LENGTH) {
+        if(x == MAZE_LENGTH - 1 && y == MAZE_LENGTH - 1 && z == MAZE_LENGTH -1) {
             return true;
             std::cout << "End of Maze found" << std::endl;
         }
@@ -61,4 +63,6 @@ bool AMaze::findPath(int x, int y, int z) {
             return false;
 
         }
+      }
+  return false;
 }
