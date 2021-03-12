@@ -1,0 +1,9 @@
+insertHead 1
+insertTail 2
+insertAfter 3 2
+size 3
+printList
+  1 2 3 
+insertHead 0
+insertTail 4
+insertAfter 0 50
