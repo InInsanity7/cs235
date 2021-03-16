@@ -72,6 +72,7 @@ bool BST::remove(int value) {
             preptr->right = ptr->right;
         }
         delete ptr;
+        ptr = preptr;
     }
     else{
     Node* old = ptr;
@@ -96,6 +97,7 @@ void BST::replaceParent(Node*& oldroot, Node*& newroot) {
                 ptr->left = NULL;
                     }
             delete newroot;
+            newroot = NULL;
         }
         else {
             replaceParent(newroot, newroot->left);
@@ -110,6 +112,7 @@ void BST::deleteTree(Node*& next) {
     deleteTree(next->left);
     deleteTree(next->right);
     delete next;
+    next = NULL;
     return;
 }
 void BST::clear() {    

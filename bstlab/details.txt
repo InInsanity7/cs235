@@ -1,0 +1,12 @@
+out_file1.txt
+out_file2.txt
+6:  7 							      <
+Remove 7 True							      |	Remove 7 False								
+PrintBST							      <
+BST is empty							      <
+Clear							      <
+PrintBST							      <
+BST is empty							      <
+out_file3.txt
+out_file4.txt
+out_file5.txt
